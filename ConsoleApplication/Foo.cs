@@ -1,4 +1,3 @@
-using System;
 
 namespace ConsoleApplication
 {
@@ -11,11 +10,6 @@ namespace ConsoleApplication
         public Foo()
         {
         }
-
-        public void ShowName()
-        {
-            _age = -10;
-        } 
         
         public Foo(int age, string name, bool isTrue)
         {
@@ -23,6 +17,23 @@ namespace ConsoleApplication
             _name = name;
             _isTrue = isTrue;
         }
+        public Foo(int age, string name)
+        {
+            _age = age;
+            _name = name;
+        }
+        public Foo(int age, bool isTrue)
+        {
+            _age = age;
+            _isTrue = isTrue;
+        }
+        public Foo(string name, bool isTrue)
+        {
+            _name = name;
+            _isTrue = isTrue;
+        }
+        
+        
     }
     
     

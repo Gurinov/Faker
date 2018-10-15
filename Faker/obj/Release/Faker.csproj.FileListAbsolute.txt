@@ -5,3 +5,10 @@ D:\Labs\SPP Labs\Faker\Faker\Faker\obj\Release\Faker.dll
 D:\Labs\SPP Labs\Faker\Faker\Faker\obj\Release\Faker.pdb
 D:\Labs\SPP Labs\Faker\Faker\Faker\bin\Release\ConsoleApplication.exe
 D:\Labs\SPP Labs\Faker\Faker\Faker\bin\Release\ConsoleApplication.pdb
+A:\Labs\SppLabs\Faker\Faker\obj\Release\Faker.csprojResolveAssemblyReference.cache
+A:\Labs\SppLabs\Faker\Faker\obj\Release\Faker.dll
+A:\Labs\SppLabs\Faker\Faker\obj\Release\Faker.pdb
+A:\Labs\SppLabs\Faker\Faker\bin\Release\Faker.dll
+A:\Labs\SppLabs\Faker\Faker\bin\Release\Faker.pdb
+A:\Labs\SppLabs\Faker\Faker\bin\Release\ConsoleApplication.exe
+A:\Labs\SppLabs\Faker\Faker\bin\Release\ConsoleApplication.pdb

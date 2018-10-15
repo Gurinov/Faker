@@ -8,8 +8,9 @@ namespace ConsoleApplication
         {
             var faker = new Faker.Faker();
             Foo foo = faker.Create<Foo>();
-            Foo foo1 = new Foo();
             Console.WriteLine(foo._age);
+            Console.WriteLine(foo._name);
+            Console.WriteLine(foo._isTrue);
         }
     }
 }
