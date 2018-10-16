@@ -14,13 +14,19 @@ namespace ConsoleApplication
             Console.WriteLine(foo._bar._sumbol);
             Console.WriteLine(foo._bar._newDouble);
 
-            string intArrToString = "bar _intArr = ";
+            string intArrToString = "bar _intList = ";
             foreach (int i in foo._bar._intList)
             {
                 intArrToString += i + "; ";
             }
             Console.WriteLine(intArrToString);
 
+            /*intArrToString = "bar _intArr = ";
+            foreach (int i in foo._bar._intArr)
+            {
+                intArrToString += i + "; ";
+            }
+            Console.WriteLine(intArrToString);*/
         }
     }
 }

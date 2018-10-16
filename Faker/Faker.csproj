@@ -49,6 +49,9 @@
     <Compile Include="Generators\BaseTypeGenerator\StringGenerator.cs" />
     <Compile Include="Generators\CustomTypeGenerator\ArrayGenerator.cs" />
     <Compile Include="Generators\CustomTypeGenerator\IArrayGenerator.cs" />
+    <Compile Include="Generators\CustomTypeGenerator\ListGenerator.cs" />
+    <Compile Include="GenericPluginLoader.cs" />
+    <Compile Include="IPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,23 +10,34 @@ namespace Faker
     public class Faker
     {
         
-        private Dictionary<Type, IGenerator> baseTypeGenerator;
-        private Dictionary<Type, IArrayGenerator> arrayTypeGenerator;
+        private readonly Dictionary<Type, IGenerator> _baseTypeGenerators;
+        private readonly Dictionary<Type, IArrayGenerator> _arrayTypeGenerator;
+        private Dictionary<Type, IPlugin> _plugins;
         public Faker()
         {
-            baseTypeGenerator = new Dictionary<Type, IGenerator>();
-            arrayTypeGenerator = new Dictionary<Type, IArrayGenerator>();
-
-            baseTypeGenerator.Add(typeof(bool), new BoolGenerator());
-            baseTypeGenerator.Add(typeof(double), new DoubleGenerator());
-            baseTypeGenerator.Add(typeof(float), new FloatGenerator());
-            baseTypeGenerator.Add(typeof(int), new IntGenerator());
-            baseTypeGenerator.Add(typeof(long), new LongGenerator());
-            baseTypeGenerator.Add(typeof(string), new StringGenerator());
-            baseTypeGenerator.Add(typeof(char), new CharGenerator());
+            _baseTypeGenerators = new Dictionary<Type, IGenerator>();
+            _arrayTypeGenerator = new Dictionary<Type, IArrayGenerator>();
+            _plugins = new Dictionary<Type, IPlugin>();
             
-            arrayTypeGenerator.Add(typeof(List<>), new ArrayGenerator());
-            arrayTypeGenerator.Add(typeof(Array), new ArrayGenerator());
+            ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins("Plugins");
+            if (plugins != null)
+            {
+                foreach(var item in plugins)
+                {
+                    _plugins.Add(item.type, item);
+                }
+            }
+            
+            _baseTypeGenerators.Add(typeof(bool), new BoolGenerator());
+            _baseTypeGenerators.Add(typeof(double), new DoubleGenerator());
+            _baseTypeGenerators.Add(typeof(float), new FloatGenerator());
+            _baseTypeGenerators.Add(typeof(int), new IntGenerator());
+            _baseTypeGenerators.Add(typeof(long), new LongGenerator());
+            _baseTypeGenerators.Add(typeof(string), new StringGenerator());
+            _baseTypeGenerators.Add(typeof(char), new CharGenerator());
+            
+            _arrayTypeGenerator.Add(typeof(List<>), new ArrayGenerator());
+            _arrayTypeGenerator.Add(typeof(Array), new ArrayGenerator());
         }
         
         public T Create<T>()
@@ -34,7 +45,7 @@ namespace Faker
             return (T) CreateObject(typeof(T));
         }
 
-        public ConstructorInfo getConstructorsWithMaxParametersCount(Type type)
+        private ConstructorInfo GetConstructorsWithMaxParametersCount(Type type)
         {
             int maxParametersCount = 0;
             int constructorsWithMaxParametersCount = 0;
@@ -56,7 +67,7 @@ namespace Faker
             
             if (type != null)
             {
-                ConstructorInfo constructor = getConstructorsWithMaxParametersCount(type);
+                ConstructorInfo constructor = GetConstructorsWithMaxParametersCount(type);
                 ParameterInfo[] constructorParameters = constructor.GetParameters();
 
                 var inputParametes = new List<object>();
@@ -73,14 +84,14 @@ namespace Faker
         private object GenerateValue(Type parameterType)
         {
             object generatedObject;
-            if (baseTypeGenerator.ContainsKey(parameterType))
+            if (_baseTypeGenerators.ContainsKey(parameterType))
             {
-                generatedObject = baseTypeGenerator[parameterType].GenerateRandomValue();
+                generatedObject = _baseTypeGenerators[parameterType].GenerateRandomValue();
                 return generatedObject;
             }else
-                if (parameterType.IsGenericType && arrayTypeGenerator.ContainsKey(parameterType.GetGenericTypeDefinition()))
+                if (parameterType.IsGenericType && _arrayTypeGenerator.ContainsKey(parameterType.GetGenericTypeDefinition()))
                 {
-                    IList generatedArray = (IList) arrayTypeGenerator[parameterType.GetGenericTypeDefinition()]
+                    IList generatedArray = (IList) _arrayTypeGenerator[parameterType.GetGenericTypeDefinition()]
                         .GenerateRandomArray(parameterType);
                     for (int i =0; i < 5; i++)
                     {
