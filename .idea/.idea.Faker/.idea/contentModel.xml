@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="A:\Labs\SppLabs\Faker" t="IncludeFlat">
+    <e p="C:\Users\Евгений Гуринов\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Евгений Гуринов\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_Faker.-1102487088.00" t="ExcludeRecursive" />
+    <e p="D:\1 Labs\SPP Labs\Faker" t="IncludeFlat">
       <e p="ConsoleApplication" t="IncludeRecursive">
+        <e p="Bar.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="ConsoleApplication.csproj" t="IncludeRecursive" />
         <e p="Foo.cs" t="Include" />
@@ -17,13 +20,20 @@
         <e p="Faker.cs" t="Include" />
         <e p="Faker.csproj" t="IncludeRecursive" />
         <e p="Generators" t="Include">
-          <e p="BoolGenerator.cs" t="Include" />
-          <e p="DoubleGenerator.cs" t="Include" />
-          <e p="FloatGenerator.cs" t="Include" />
-          <e p="IGenerator.cs" t="Include" />
-          <e p="IntGenerator.cs" t="Include" />
-          <e p="LongGenerator.cs" t="Include" />
-          <e p="StringGenerator.cs" t="Include" />
+          <e p="BaseTypeGenerator" t="Include">
+            <e p="BoolGenerator.cs" t="Include" />
+            <e p="CharGenerator.cs" t="Include" />
+            <e p="DoubleGenerator.cs" t="Include" />
+            <e p="FloatGenerator.cs" t="Include" />
+            <e p="IGenerator.cs" t="Include" />
+            <e p="IntGenerator.cs" t="Include" />
+            <e p="LongGenerator.cs" t="Include" />
+            <e p="StringGenerator.cs" t="Include" />
+          </e>
+          <e p="CustomTypeGenerator" t="Include">
+            <e p="ArrayGenerator.cs" t="Include" />
+            <e p="IArrayGenerator.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
@@ -33,7 +43,5 @@
       <e p="Faker.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\gurin\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\gurin\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_Faker.1445511740.00" t="ExcludeRecursive" />
   </component>
 </project>

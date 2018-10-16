@@ -39,13 +39,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Faker.cs" />
-    <Compile Include="Generators\BoolGenerator.cs" />
-    <Compile Include="Generators\FloatGenerator.cs" />
-    <Compile Include="Generators\IGenerator.cs" />
-    <Compile Include="Generators\IntGenerator.cs" />
-    <Compile Include="Generators\LongGenerator.cs" />
-    <Compile Include="Generators\DoubleGenerator.cs" />
-    <Compile Include="Generators\StringGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\BoolGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\CharGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\DoubleGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\FloatGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\IGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\IntGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\LongGenerator.cs" />
+    <Compile Include="Generators\BaseTypeGenerator\StringGenerator.cs" />
+    <Compile Include="Generators\CustomTypeGenerator\ArrayGenerator.cs" />
+    <Compile Include="Generators\CustomTypeGenerator\IArrayGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

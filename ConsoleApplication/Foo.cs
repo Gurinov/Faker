@@ -3,14 +3,24 @@ namespace ConsoleApplication
 {
     public class Foo
     {
-        public int _age { get; set; }
-        public string _name { get; set; }
-        public bool _isTrue { get; set; }
-
+        public int _age;
+        public string _name;
+        public bool _isTrue;
+        public Bar _bar;
+        
         public Foo()
         {
+            
         }
-        
+
+        public Foo(int age, string name, bool isTrue, Bar bar)
+        {
+            _age = age;
+            _name = name;
+            _isTrue = isTrue;
+            _bar = bar;
+        }
+
         public Foo(int age, string name, bool isTrue)
         {
             _age = age;
@@ -32,7 +42,6 @@ namespace ConsoleApplication
             _name = name;
             _isTrue = isTrue;
         }
-        
         
     }
     

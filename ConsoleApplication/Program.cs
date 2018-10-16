@@ -11,6 +11,16 @@ namespace ConsoleApplication
             Console.WriteLine(foo._age);
             Console.WriteLine(foo._name);
             Console.WriteLine(foo._isTrue);
+            Console.WriteLine(foo._bar._sumbol);
+            Console.WriteLine(foo._bar._newDouble);
+
+            string intArrToString = "bar _intArr = ";
+            foreach (int i in foo._bar._intList)
+            {
+                intArrToString += i + "; ";
+            }
+            Console.WriteLine(intArrToString);
+
         }
     }
 }

@@ -6,3 +6,4 @@ A:\Labs\SppLabs\Faker\ConsoleApplication\bin\Debug\Faker.dll
 A:\Labs\SppLabs\Faker\ConsoleApplication\bin\Debug\Faker.pdb
 A:\Labs\SppLabs\Faker\ConsoleApplication\obj\Debug\ConsoleApplication.exe
 A:\Labs\SppLabs\Faker\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
+D:\1 Labs\SPP Labs\Faker\ConsoleApplication\obj\Debug\ConsoleApplication.csprojResolveAssemblyReference.cache
