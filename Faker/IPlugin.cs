@@ -5,6 +5,6 @@ namespace Faker
     public interface IPlugin
     {
         Type type { get; } 
-        void GenerateRandomValue(); 
+        object GenerateRandomValue(Type type); 
     }
 }

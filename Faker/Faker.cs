@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Faker.Generators;
-using Faker.Generators.CustomTypeGenerator;
 
 namespace Faker
 {
@@ -11,12 +10,10 @@ namespace Faker
     {
         
         private readonly Dictionary<Type, IGenerator> _baseTypeGenerators;
-        private readonly Dictionary<Type, IArrayGenerator> _arrayTypeGenerator;
         private Dictionary<Type, IPlugin> _plugins;
         public Faker()
         {
             _baseTypeGenerators = new Dictionary<Type, IGenerator>();
-            _arrayTypeGenerator = new Dictionary<Type, IArrayGenerator>();
             _plugins = new Dictionary<Type, IPlugin>();
             
             ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins("Plugins");
@@ -35,9 +32,6 @@ namespace Faker
             _baseTypeGenerators.Add(typeof(long), new LongGenerator());
             _baseTypeGenerators.Add(typeof(string), new StringGenerator());
             _baseTypeGenerators.Add(typeof(char), new CharGenerator());
-            
-            _arrayTypeGenerator.Add(typeof(List<>), new ArrayGenerator());
-            _arrayTypeGenerator.Add(typeof(Array), new ArrayGenerator());
         }
         
         public T Create<T>()
@@ -89,10 +83,9 @@ namespace Faker
                 generatedObject = _baseTypeGenerators[parameterType].GenerateRandomValue();
                 return generatedObject;
             }else
-                if (parameterType.IsGenericType && _arrayTypeGenerator.ContainsKey(parameterType.GetGenericTypeDefinition()))
+                if (parameterType.IsGenericType && _plugins.ContainsKey(parameterType.GetGenericTypeDefinition()))
                 {
-                    IList generatedArray = (IList) _arrayTypeGenerator[parameterType.GetGenericTypeDefinition()]
-                        .GenerateRandomArray(parameterType);
+                    IList generatedArray = (IList) _plugins[parameterType.GetGenericTypeDefinition()].GenerateRandomValue(parameterType);
                     for (int i =0; i < 5; i++)
                     {
                         generatedArray.Add(GenerateValue(parameterType.GenericTypeArguments[0]));
