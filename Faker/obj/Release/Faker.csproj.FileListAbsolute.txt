@@ -17,5 +17,3 @@ D:\1 Labs\SPP Labs\Faker\Faker\bin\Release\Faker.pdb
 D:\1 Labs\SPP Labs\Faker\Faker\obj\Release\Faker.csprojResolveAssemblyReference.cache
 D:\1 Labs\SPP Labs\Faker\Faker\obj\Release\Faker.dll
 D:\1 Labs\SPP Labs\Faker\Faker\obj\Release\Faker.pdb
-D:\1 Labs\SPP Labs\Faker\Faker\bin\Release\ConsoleApplication.exe
-D:\1 Labs\SPP Labs\Faker\Faker\bin\Release\ConsoleApplication.pdb

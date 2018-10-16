@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace ConsoleApplication
@@ -7,14 +8,14 @@ namespace ConsoleApplication
         public char _sumbol;
         public double _newDouble;
         public List<int> _intList;
-        public int[] _intArr;
+        public DateTime _dateTime;
 
-        public Bar(char sumbol, double newDouble, List<int> intList, int[] intArr)
+        public Bar(char sumbol, double newDouble, List<int> intList, DateTime dateTime)
         {
             _sumbol = sumbol;
             _newDouble = newDouble;
             _intList = intList;
-            _intArr = intArr;
+            _dateTime = dateTime;
         }
 
         public Bar(char sumbol, double newDouble, List<int> intList)

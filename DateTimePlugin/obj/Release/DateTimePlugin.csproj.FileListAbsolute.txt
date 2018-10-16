@@ -1,0 +1,7 @@
+D:\1 Labs\SPP Labs\Faker\DateTimePlugin\bin\Release\DateTimePlugin.dll
+D:\1 Labs\SPP Labs\Faker\DateTimePlugin\bin\Release\DateTimePlugin.pdb
+D:\1 Labs\SPP Labs\Faker\DateTimePlugin\bin\Release\Faker.dll
+D:\1 Labs\SPP Labs\Faker\DateTimePlugin\bin\Release\Faker.pdb
+D:\1 Labs\SPP Labs\Faker\DateTimePlugin\obj\Release\DateTimePlugin.csprojResolveAssemblyReference.cache
+D:\1 Labs\SPP Labs\Faker\DateTimePlugin\obj\Release\DateTimePlugin.dll
+D:\1 Labs\SPP Labs\Faker\DateTimePlugin\obj\Release\DateTimePlugin.pdb

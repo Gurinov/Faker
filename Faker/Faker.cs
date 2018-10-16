@@ -11,6 +11,8 @@ namespace Faker
         
         private readonly Dictionary<Type, IGenerator> _baseTypeGenerators;
         private Dictionary<Type, IPlugin> _plugins;
+        
+        
         public Faker()
         {
             _baseTypeGenerators = new Dictionary<Type, IGenerator>();
@@ -90,15 +92,20 @@ namespace Faker
                     {
                         generatedArray.Add(GenerateValue(parameterType.GenericTypeArguments[0]));
                     }
-    
+        
                     generatedObject = generatedArray;
                     return generatedObject;
                 }else
-                    if (parameterType.IsClass && !parameterType.IsArray)
+                    if (_plugins.ContainsKey(parameterType))
                     {
-                        generatedObject = CreateObject(parameterType);
+                        generatedObject = _plugins[parameterType].GenerateRandomValue(parameterType);
                         return generatedObject;
-                    }
+                    }else
+                        if (parameterType.IsClass && !parameterType.IsArray)
+                        {
+                            generatedObject = CreateObject(parameterType);
+                            return generatedObject;
+                        }
           return null;
         }
     }

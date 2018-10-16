@@ -20,13 +20,9 @@ namespace ConsoleApplication
                 intArrToString += i + "; ";
             }
             Console.WriteLine(intArrToString);
+            Console.WriteLine(foo._bar._dateTime);
 
-            /*intArrToString = "bar _intArr = ";
-            foreach (int i in foo._bar._intArr)
-            {
-                intArrToString += i + "; ";
-            }
-            Console.WriteLine(intArrToString);*/
+            
         }
     }
 }
