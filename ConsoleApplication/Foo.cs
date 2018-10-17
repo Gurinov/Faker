@@ -7,8 +7,11 @@ namespace ConsoleApplication
         public string _name;
         public bool _isTrue;
         public Bar _bar;
+        public int[] _ints;
         
         public int _int1;
+        public float _float;
+        public long _long;
         public int _int2;
         public string _str1;
         public string _str2;

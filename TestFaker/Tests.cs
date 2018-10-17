@@ -19,7 +19,8 @@ namespace TestFaker
             class1 = faker.Create<Class1>();
         }
 
-        [Test] public void TestGenerateBool()
+        [Test] 
+        public void TestGenerateBool()
         {
             Assert.True(foo._isTrue);
         }
@@ -37,6 +38,18 @@ namespace TestFaker
         }
         
         [Test]
+        public void TestGenerateLong()
+        {
+            Assert.True(foo._long != 0L);
+        }
+        
+        [Test]
+        public void TestGenerateFloat()
+        {
+            Assert.True(foo._float != 0f);
+        }
+        
+        [Test]
         public void TestGenerateWithoutConstructor()
         {
             Assert.True(foo._int1 != 0);
@@ -46,6 +59,10 @@ namespace TestFaker
         public void TestGenerateList()
         {
             Assert.True(foo._bar._intList.Count > 0);
+            foreach (int num in foo._bar._intList)
+            {
+                Assert.True(num != 0);
+            }
         }
         
         [Test]
@@ -59,6 +76,12 @@ namespace TestFaker
         public void TestGenerateCircleDependencies()
         {
             Assert.True(class1.class2.class1.class2 == null && class1.class2.class1 != null);
+        }
+        
+        [Test]
+        public void TestGenerateValueWithoutGenerator()
+        {
+            Assert.True(foo._ints == null);
         }
     }
 }

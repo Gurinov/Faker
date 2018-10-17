@@ -50,9 +50,17 @@
       <Project>{81c9f7db-464e-4280-928f-93d4f6d50280}</Project>
       <Name>ConsoleApplication</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DateTimePlugin\DateTimePlugin.csproj">
+      <Project>{97dcd106-df51-4fe3-a719-ee38a7586068}</Project>
+      <Name>DateTimePlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Faker\Faker.csproj">
       <Project>{843c9a6d-a4f9-44a0-8f04-d1116d5c7dba}</Project>
       <Name>Faker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ListPlugin\ListPlugin.csproj">
+      <Project>{f7afad32-fceb-40b7-a0dc-d68d7914f51e}</Project>
+      <Name>ListPlugin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
