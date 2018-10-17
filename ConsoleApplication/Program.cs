@@ -22,7 +22,11 @@ namespace ConsoleApplication
             Console.WriteLine(intArrToString);
             Console.WriteLine(foo._bar._dateTime);
 
-            
+
+            Class1 class1 = faker.Create<Class1>();
+            Console.WriteLine(class1.int1);
+            Console.WriteLine(class1.int2);
+            Console.WriteLine(class1.int3);
         }
     }
 }

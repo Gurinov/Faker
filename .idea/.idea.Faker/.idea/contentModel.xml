@@ -7,6 +7,8 @@
       <e p="ConsoleApplication" t="IncludeRecursive">
         <e p="Bar.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="Class2.cs" t="Include" />
         <e p="ConsoleApplication.csproj" t="IncludeRecursive" />
         <e p="Foo.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />

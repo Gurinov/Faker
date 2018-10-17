@@ -11,12 +11,13 @@ namespace Faker
         
         private readonly Dictionary<Type, IGenerator> _baseTypeGenerators;
         private Dictionary<Type, IPlugin> _plugins;
-        
+        private Stack<Type> _classStack;
         
         public Faker()
         {
             _baseTypeGenerators = new Dictionary<Type, IGenerator>();
             _plugins = new Dictionary<Type, IPlugin>();
+            _classStack = new Stack<Type>();
             
             ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins("Plugins");
             if (plugins != null)
@@ -69,7 +70,15 @@ namespace Faker
                 var inputParametes = new List<object>();
                 foreach (ParameterInfo parameter in constructorParameters)
                 {
-                    inputParametes.Add(GenerateValue(parameter.ParameterType));
+                    if (!_classStack.Contains(parameter.ParameterType))
+                    {
+                        _classStack.Push(parameter.ParameterType);
+                        inputParametes.Add(GenerateValue(parameter.ParameterType));
+                        _classStack.Pop();
+                    }else
+                    {
+                        inputParametes.Add(null);
+                    }
                 }
                 generatedObject = constructor.Invoke(inputParametes.ToArray());
             }
@@ -101,7 +110,7 @@ namespace Faker
                         generatedObject = _plugins[parameterType].GenerateRandomValue(parameterType);
                         return generatedObject;
                     }else
-                        if (parameterType.IsClass && !parameterType.IsArray)
+                        if (parameterType.IsClass && !parameterType.IsArray && !parameterType.IsGenericType)
                         {
                             generatedObject = CreateObject(parameterType);
                             return generatedObject;

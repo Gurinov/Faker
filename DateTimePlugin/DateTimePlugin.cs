@@ -3,16 +3,22 @@ using Faker;
 
 namespace DateTimePlugin
 {
-    public class DateTimePlugin : IPlugin 
-    { 
+    public class DateTimePlugin : IPlugin
+    {
+        private Random random;
+
         public Type type
         { 
             get { return typeof(DateTime); } 
         }
 
+        public DateTimePlugin()
+        {
+            random = new Random();
+        }
+
         public object GenerateRandomValue(Type type)
         {
-            Random random = new Random();
             int year = random.Next(1990, 2018);
             int month = random.Next(1, 12);
             int day = random.Next(1, 27);
