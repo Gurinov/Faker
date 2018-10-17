@@ -8,10 +8,10 @@ namespace ConsoleApplication
         public bool _isTrue;
         public Bar _bar;
         
-        public Foo()
-        {
-            
-        }
+        public int _int1;
+        public int _int2;
+        public string _str1;
+        public string _str2;
 
         public Foo(int age, string name, bool isTrue, Bar bar)
         {

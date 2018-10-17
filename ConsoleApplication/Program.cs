@@ -27,6 +27,11 @@ namespace ConsoleApplication
             Console.WriteLine(class1.int1);
             Console.WriteLine(class1.int2);
             Console.WriteLine(class1.int3);
+            
+            Console.WriteLine(foo._int1);
+            Console.WriteLine(foo._int2);
+            Console.WriteLine(foo._str1);
+            Console.WriteLine(foo._str2);
         }
     }
 }

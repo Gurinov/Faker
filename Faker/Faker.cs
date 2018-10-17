@@ -61,6 +61,8 @@ namespace Faker
         private object CreateObject(Type type)
         {
             object generatedObject = null;
+            Stack<string> fieldsOnConstructor = new Stack<string>();
+
             
             if (type != null)
             {
@@ -72,6 +74,8 @@ namespace Faker
                 {
                     if (!_classStack.Contains(parameter.ParameterType))
                     {
+                        fieldsOnConstructor.Push(parameter.Name);
+                        fieldsOnConstructor.Push("_" + parameter.Name);
                         _classStack.Push(parameter.ParameterType);
                         inputParametes.Add(GenerateValue(parameter.ParameterType));
                         _classStack.Pop();
@@ -81,6 +85,18 @@ namespace Faker
                     }
                 }
                 generatedObject = constructor.Invoke(inputParametes.ToArray());
+                
+                FieldInfo[] fields = type.GetFields();
+                foreach (FieldInfo field in fields)
+                {
+                    if (!fieldsOnConstructor.Contains(field.Name) && !_classStack.Contains(field.FieldType))
+                    {
+                        _classStack.Push(field.FieldType);
+                        field.SetValue(generatedObject, GenerateValue(field.FieldType));
+                        _classStack.Pop();
+                    }
+                }
+                
             }
 
             return generatedObject; 

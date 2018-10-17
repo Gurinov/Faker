@@ -9,6 +9,11 @@ namespace ConsoleApplication
         public double _newDouble;
         public List<int> _intList;
         public DateTime _dateTime;
+        
+        public char _sumbol2;
+        public char _sumbol3;
+        public DateTime _dateTime1;
+       
 
         public Bar(char sumbol, double newDouble, List<int> intList, DateTime dateTime)
         {
