@@ -19,7 +19,7 @@ namespace Faker
             _plugins = new Dictionary<Type, IPlugin>();
             _classStack = new Stack<Type>();
             
-            ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins("Plugins");
+            ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\ConsoleApplication\\Plugins");
             if (plugins != null)
             {
                 foreach(var item in plugins)

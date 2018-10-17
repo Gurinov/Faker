@@ -11,7 +11,6 @@ namespace Faker
 		{
 			string[] dllFileNames = null;
 
-			path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\" + path;
 			if(Directory.Exists(path))
 			{
 				dllFileNames = Directory.GetFiles(path, "*.dll");
